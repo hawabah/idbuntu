@@ -1,0 +1,21 @@
+---
+
+- name: Create user 'ideasbox'
+  user:
+    name:               ideasbox
+    comment:            "ideasbox"
+    uid:                1010
+    password:           "$6$MHOUMdoO.tNHLv$aaL6ffPYFGirRo7WmfddNbRhnl11jO6zFOggUohE/j0Ixqmn9Xp2StZ8oilGj7voiGZQcFYAnMDYPX7/XIKd6/"
+    state:              present
+  tags:
+  - users
+
+- name: Create guest's configuration directory
+  file: path=/etc/guest-session state=directory
+  tags:
+  - users
+
+- name: Symlink 'ideassbox' to guest's skel
+  file: src=/home/ideasbox dest=/etc/guest-session/skel state=link
+  tags:
+  - users
