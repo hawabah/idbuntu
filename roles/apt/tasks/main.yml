@@ -1,0 +1,23 @@
+---
+
+- name: Refresh the cache
+  apt:
+    update_cache: yes
+  tags:
+  - apt
+
+- name: Make sure we have the Debian keyrings uptodate
+  apt:
+    pkg:    debian-archive-keyring
+    state:  latest
+  tags:
+  - apt
+
+- name: apt-get upgrade
+  apt:
+    upgrade: dist
+  tags:
+  - apt
+  - apt-upgrade
+
+
