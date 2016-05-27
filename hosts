@@ -1,0 +1,8 @@
+quarre-pc1    ansible_ssh_host=192.168.1.116
+quarre-pc2    ansible_ssh_host=192.168.1.155
+quarre-pc3    ansible_ssh_host=192.168.1.117
+quarre-pc4    ansible_ssh_host=192.168.1.119
+
+
+[jeanquarre]
+quarre-pc[1:4]
