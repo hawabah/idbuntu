@@ -1,0 +1,125 @@
+---
+
+- name: tools | Remove useless/unwanted packages
+  apt:
+    name: "{{ item }}"
+    state: absent
+    purge: yes
+  with_items:
+  - clipit
+
+- name: tools | Install common tools
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+  # UI
+  - tree
+  - mtr-tiny
+  - htop
+  - bash-completion
+  - less
+  - ncurses-term
+  - screen
+  - figlet
+  - toilet
+  - bsdmainutils
+  - rxvt-unicode-256color
+  - tmux
+  # dev tools
+  - patch
+  - colordiff
+  - rsync
+  - strace
+  - mktemp
+  - git
+  - subversion
+  # system tools
+  - openssh-server
+  - iftop
+  - iotop
+  - ncdu
+  - ntfs-3g
+  # net tools
+  - curl
+  - bind9-host
+  - elinks
+  - lftp
+  - nmap
+  # misc tools
+  - bc
+  - file
+  - unzip
+  - bzip2
+  - rdiff-backup
+  - p7zip-full
+  tags:
+  - tools
+
+- name: desktop | Install common X tools
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+  # image
+  - gimp
+  - openshot
+  - inkscape
+  - imagemagick
+  - optipng
+  - jhead
+  - krita
+  - mypaint
+  - tuxpaint
+  - darktable
+  - pinta
+  - digikam
+  # fonts
+  - fonts-inconsolata
+  - xfonts-terminus
+  - exfat-utils
+  # video
+  - mplayer
+  - vlc
+  - youtube-dl
+  - cheese
+  - winff
+  - kdenlive
+  # son
+  - audacity
+  - musescore
+  # bureautique
+  - libreoffice
+  - calibre
+  - xpdf
+  - pdfmod
+  - scribus
+  # maps
+  - marble
+  - gnome-maps
+  - stellarium
+  # jeux
+  - supertux
+  # internet
+  - torbrowser-launcher
+  # programmation
+  - scratch
+  - virtualbox
+  # MISC FIXME
+  # - skype
+  # - googleearth-package
+  # - celestia # pas dispo dans toutes les versions
+  # - freemind # pas dispo dans toutes les versions
+  # - libdvdcss
+  # - scratch2
+  # - musinekit
+  # - pdfcreator
+  # - gantt project
+  # - player vs mplayer2 vs...
+
+  # - lecteur de CD à la Daemon Tools
+  # - extracteur de musique à la CDeX
+
+  tags:
+  - desktop
+

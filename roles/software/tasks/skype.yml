@@ -1,0 +1,27 @@
+---
+
+- name: Skype | Add architecture for x64 systems
+  shell: "dpkg --add-architecture i386"
+  when: ansible_userspace_architecture == "x86_64"
+  tags:
+  - skype
+
+- name: Skype | Add Debian apt repository
+  apt_repository: repo="deb http://archive.canonical.com/ {{ ansible_distribution_release }} partner"
+  tags:
+    - skype
+
+- name: Refresh the cache
+  apt:
+    update_cache: yes
+  tags:
+  - skype
+
+- name: Skype | Install Skype
+  apt:
+    name: "skype"
+    state: present
+  tags:
+  - skype
+
+
