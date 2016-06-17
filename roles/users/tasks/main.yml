@@ -15,7 +15,7 @@
   tags:
   - users
 
-- name: Symlink 'ideassbox' to guest's skel
+- name: Symlink 'ideasbox' to guest's skel
   file: src=/home/ideasbox dest=/etc/guest-session/skel state=link
   tags:
   - users
