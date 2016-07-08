@@ -1,8 +1,7 @@
 ---
 
 - hosts:        all
-  remote_user:  bsfadmin
-  sudo:         yes
+  remote_user:  root
   roles:
   - apt
   - software
