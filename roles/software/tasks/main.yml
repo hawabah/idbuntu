@@ -100,8 +100,6 @@
   - stellarium
   # jeux
   - supertux
-  # internet
-  - torbrowser-launcher
   # programmation
   - scratch
   - virtualbox
@@ -123,3 +121,26 @@
   tags:
   - desktop
 
+- name: Install skype
+  include: skype.yml
+  tags:
+  - skype
+  - desktop
+
+- name: Tor Browser | Add Micah Lee's PPA
+  command: apt-add-repository --yes ppa:micahflee/ppa
+  when: ansible_distribution == "Ubuntu"
+  tags:
+  - torbrowser
+  - apt
+  - desktop
+
+
+- name: Tor Browser | Install Tor Browser
+  apt:
+    name: "torbrowser-launcher"
+    state: present
+    update_cache: yes
+  tags:
+  - torbrowser
+  - desktop

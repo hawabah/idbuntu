@@ -9,7 +9,8 @@
 - name: Skype | Add Partner repository
   apt_repository: repo="deb http://archive.canonical.com/ {{ ansible_distribution_release }} partner"
   tags:
-    - skype
+  - skype
+  - apt
 
 - name: Refresh the cache
   apt:
