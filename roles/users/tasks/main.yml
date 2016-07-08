@@ -1,5 +1,21 @@
 ---
 
+# sysadmin
+
+- name: enforce user 'bsfadmin'
+  user:
+    name:               bsfadmin
+    comment:            "Admin"
+    uid:                1000
+    password:           "$6$MHOUMdoO.tNHLv$aaL6ffPYFGirRo7WmfddNbRhnl11jO6zFOggUohE/j0Ixqmn9Xp2StZ8oilGj7voiGZQcFYAnMDYPX7/XIKd6/"
+    groups:             adm,sudo
+    state:              present
+  tags:
+  - users
+
+
+# template session
+
 - name: Create user 'ideasbox'
   user:
     name:               ideasbox
