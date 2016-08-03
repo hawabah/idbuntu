@@ -1,37 +1,37 @@
-quarre-pc1    ansible_ssh_host=192.168.1.116
-quarre-pc2    ansible_ssh_host=192.168.1.155
-quarre-pc3    ansible_ssh_host=192.168.1.117
-quarre-pc4    ansible_ssh_host=192.168.1.119
+#quarre-pc1    ansible_ssh_host=192.168.1.116
+#quarre-pc2    ansible_ssh_host=192.168.1.155
+#quarre-pc3    ansible_ssh_host=192.168.1.117
+#quarre-pc4    ansible_ssh_host=192.168.1.119
 
-grandesynthe-pc1   ansible_ssh_host=10.10.8.32
-grandesynthe-pc2   ansible_ssh_host=10.10.8.35
-grandesynthe-pc3   ansible_ssh_host=10.10.8.36
+#grandesynthe-pc1   ansible_ssh_host=10.10.8.32
+#grandesynthe-pc2   ansible_ssh_host=10.10.8.35
+#grandesynthe-pc3   ansible_ssh_host=10.10.8.36
 
-sarcelles-PC1   ansible_ssh_host=10.10.8.12
-sarcelles-PC2   ansible_ssh_host=10.10.8.222
-sarcelles-PC3   ansible_ssh_host=10.10.8.217
-sarcelles-PC4   ansible_ssh_host=10.10.8.205
+#sarcelles-PC1   ansible_ssh_host=10.10.8.12
+#sarcelles-PC2   ansible_ssh_host=10.10.8.222
+#sarcelles-PC3   ansible_ssh_host=10.10.8.217
+#sarcelles-PC4   ansible_ssh_host=10.10.8.205
 
-dusseldorf-PC1   ansible_ssh_host=10.10.8.96
-dusseldorf-PC2   ansible_ssh_host=10.10.8.225
-dusseldorf-PC3   ansible_ssh_host=10.10.8.14
+#dusseldorf-PC1   ansible_ssh_host=10.10.8.96
+#dusseldorf-PC2   ansible_ssh_host=10.10.8.225
+#dusseldorf-PC3   ansible_ssh_host=10.10.8.14
 
 malakasa-pc1    ansible_ssh_host=10.10.8.96
 malakasa-pc2    ansible_ssh_host=10.10.8.217
 malakasa-pc3    ansible_ssh_host=10.10.8.189
 malakasa-pc4    ansible_ssh_host=10.10.8.222
 
-[jeanquarre]
-quarre-pc[1:4]
+#[jeanquarre]
+#quarre-pc[1:4]
 
-[grandesynthe]
-grandesynthe-pc[1:3]
+#[grandesynthe]
+#grandesynthe-pc[1:3]
 
-[sarcelles]
-sarcelles-pc[1:4]
+#[sarcelles]
+#sarcelles-pc[1:4]
 
-[dusseldorf]
-dusseldorf-pc[1:3]
+#[dusseldorf]
+#dusseldorf-pc[1:3]
 
 [malakasa]
 malakasa-pc[1:4]
