@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SSHKEY=https://tom.leloop.org/id_rsa-bsf.pub
+SSHKEY=http://tom.leloop.org/id_rsa-bsf.pub
 
 decho() {
     echo "[+] $@"
