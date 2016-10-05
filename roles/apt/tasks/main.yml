@@ -20,4 +20,8 @@
   - apt
   - apt-upgrade
 
-
+- name: apt-get autoremove
+  shell: apt-get autoremove --yes
+  tags:
+  - apt
+  - apt-upgrade
