@@ -103,6 +103,8 @@
   # programmation
   - scratch
   - virtualbox
+  # internet
+  - flashplugin-installer
   # MISC FIXME
   # - skype
   # - googleearth-package
