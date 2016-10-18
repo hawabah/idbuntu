@@ -1,6 +1,6 @@
 ---
 
-- name: Skype | Add architecture for x64 systems
+- name: Skype | Add i386 architecture for x64 systems
   shell: "dpkg --add-architecture i386"
   when: ansible_userspace_architecture == "x86_64"
   tags:
