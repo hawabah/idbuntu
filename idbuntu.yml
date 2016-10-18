@@ -4,6 +4,7 @@
   remote_user:  root
   roles:
   - apt
+  - system
   - software
   - users
   - desktop
