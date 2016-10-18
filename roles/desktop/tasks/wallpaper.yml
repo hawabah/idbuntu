@@ -1,0 +1,54 @@
+---
+
+- name: wallpaper | Create required folders
+  file:
+    path: /usr/local/share/wallpapers
+    owner: root
+    group: staff
+    mode: 0755
+    state: directory
+    recurse: yes
+  tags:
+  - desktop
+  - wallpaper
+
+- name: wallpaper | Copy the wallpaper image
+  copy:
+    src: fd-ideasbox.png
+    dest: /usr/local/share/wallpapers/
+    owner: root
+    group: staff
+    mode: 0644
+  tags:
+  - desktop
+  - wallpaper
+
+- name: wallpaper | Set the wallpaper for the bsfadmin user
+  become: yes
+  become_user: bsfadmin
+  shell: dbus-launch gsettings set org.gnome.desktop.background picture-uri 'file:///usr/local/share/wallpapers/fd-ideasbox.png'
+  tags:
+  - desktop
+  - wallpaper
+
+# FIXME: become_flags is available from ansible 2.2
+# In the meantime:
+#
+# bsfadmin$ sudo su -s /bin/bash - lightdm
+# lightdm$ dbus-launch gsettings set com.canonical.unity-greeter background /usr/local/share/wallpapers/fd-ideasbox.png
+# lightdm$ dconf update
+
+#- name: wallpaper | Set the login splash screen as well
+  #become: yes
+  #become_user: lightdm
+  #become_flags: '-s /bin/bash'
+  #shell: dbus-launch gsettings set com.canonical.unity-greeter background /usr/local/share/wallpapers/fd-ideasbox.png
+  #tags:
+  #- desktop
+  #- wallpaper
+
+- name: wallpaper | Apply all dconf changes
+  shell: dconf update
+  tags:
+  - desktop
+  - wallpaper
