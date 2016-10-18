@@ -1,3 +1,4 @@
 ---
 
 - include: wallpaper.yml
+- include: firefox.yml

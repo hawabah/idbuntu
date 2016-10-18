@@ -1,0 +1,38 @@
+---
+
+- name: firefox | Install extensions
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+  - flashplugin-installer
+  tags:
+  - firefox
+  - software
+  - desktop
+
+- name: firefox | Create a profile directory
+  file:
+    path:       /home/bsfadmin/.mozilla/firefox/ideasbox.default
+    state:      directory
+    recurse:    yes
+    owner:      bsfadmin
+    group:      bsfadmin
+  tags:
+  - firefox
+  - software
+  - desktop
+
+- name: firefox | Drop a profiles list and a configuration file
+  copy:
+    src:    "{{ item.src }}"
+    dest:   "{{ item.dest }}"
+  with_items:
+  - src: firefox_profiles.js
+    dest: /home/bsfadmin/.mozilla/firefox/profiles.ini
+  - src: firefox_prefs.js
+    dest: /home/bsfadmin/.mozilla/firefox/ideasbox.default/prefs.js
+  tags:
+  - firefox
+  - software
+  - desktop
