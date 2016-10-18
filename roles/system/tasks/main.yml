@@ -7,6 +7,7 @@
   - en_US.UTF-8
   - en_GB.UTF-8
   tags:
+  - system
   - locale
 
 - name: Install default locale
@@ -17,4 +18,5 @@
     owner:  root
     group:  root
   tags:
+  - system
   - locale

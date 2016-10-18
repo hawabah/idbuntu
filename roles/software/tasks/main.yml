@@ -7,6 +7,8 @@
     purge: yes
   with_items:
   - clipit
+  tags:
+  - software
 
 - name: tools | Install common tools
   apt:
@@ -54,6 +56,7 @@
   - rdiff-backup
   - p7zip-full
   tags:
+  - software
   - tools
 
 - name: desktop | Install common X tools
@@ -121,21 +124,24 @@
   # - extracteur de musique à la CDeX
 
   tags:
+  - software
   - desktop
 
 - name: Install skype
   include: skype.yml
   tags:
-  - skype
+  - software
   - desktop
+  - skype
 
 - name: Tor Browser | Add Micah Lee's PPA
   command: apt-add-repository --yes ppa:micahflee/ppa
   when: ansible_distribution == "Ubuntu"
   tags:
+  - software
+  - desktop
   - torbrowser
   - apt
-  - desktop
 
 
 - name: Tor Browser | Install Tor Browser
@@ -144,5 +150,6 @@
     state: present
     update_cache: yes
   tags:
-  - torbrowser
+  - software
   - desktop
+  - torbrowser

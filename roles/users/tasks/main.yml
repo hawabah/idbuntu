@@ -36,6 +36,9 @@
   tags:
   - users
 
+
+# ssh keys
+
 - name: Set up authorized_keys for the bsfadmin user
   authorized_key: user=bsfadmin key="{{ item }}"
   with_file:
@@ -45,6 +48,7 @@
     - steven.pub
   tags:
   - users
+  - ssh-keys
 
 - name: Set up authorized_keys for root user
   authorized_key: user=root key="{{ item }}"
@@ -55,3 +59,4 @@
     - steven.pub
   tags:
   - users
+  - ssh-keys
