@@ -125,6 +125,13 @@
   - software
   - desktop
 
+- name: software | Install Edubuntu Desktop
+  apt:
+    name:   edubuntu-desktop
+    state:  present
+  tags:
+  - software
+
 - name: Install skype
   include: skype.yml
   tags:
