@@ -17,7 +17,7 @@ with BSF's Ideasbox.
 
 Install Ubuntu. Open a terminal, and bootstrap the laptop:
 
-    $ curl http://filer.bsf-intranet.org/idbuntu/go.sh | sudo bash -
+    $ curl http://drop.bsf-intranet.org/idbuntu/go.sh | sudo bash -
 
 This script basically ensures one can SSH the laptops and display the local
 IP address so you can feed your ansible inventory file.
