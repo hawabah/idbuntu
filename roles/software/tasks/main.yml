@@ -124,6 +124,14 @@
   - software
   - desktop
 
+- name: software | Install restricted packages
+  apt:
+    name:   ubuntu-restricted-extras
+    state:  present
+  tags:
+  - software
+  - desktop
+
 - name: software | Install Edubuntu Desktop
   apt:
     name:   edubuntu-desktop
