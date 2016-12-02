@@ -5,7 +5,7 @@ decho() {
 }
 
 decho 'Install openssh-server...'
-apt-get install --yes openssh-server
+apt-get install --quiet --quiet --yes openssh-server
 
 decho 'Installing SSH keys...'
 mkdir --parents --mode 0700 /root/.ssh
