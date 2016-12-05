@@ -23,9 +23,9 @@
   - desktop
   - wallpaper
 
-- name: wallpaper | Set the wallpaper for the bsfadmin user
+- name: wallpaper | Set the wallpaper for the ideasbox user
   become: yes
-  become_user: bsfadmin
+  become_user: ideasbox
   shell: dbus-launch gsettings set org.gnome.desktop.background picture-uri 'file:///usr/local/share/wallpapers/fd-ideasbox.png'
   tags:
   - desktop
