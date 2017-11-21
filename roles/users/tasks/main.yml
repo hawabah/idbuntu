@@ -43,7 +43,6 @@
   authorized_key: user=bsfadmin key="{{ item }}"
   with_file:
     - florian.pub
-    - gregoire.pub
     - tom.pub
     - steven.pub
   tags:
@@ -54,7 +53,6 @@
   authorized_key: user=root key="{{ item }}"
   with_file:
     - florian.pub
-    - gregoire.pub
     - tom.pub
     - steven.pub
   tags:
