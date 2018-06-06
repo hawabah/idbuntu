@@ -45,7 +45,6 @@
     - florian.pub
     - tom.pub
     - steven.pub
-    - benoit.pub
   tags:
   - users
   - ssh-keys
@@ -56,7 +55,6 @@
     - florian.pub
     - tom.pub
     - steven.pub
-    - benoit.pub
   tags:
   - users
   - ssh-keys
