@@ -8,7 +8,7 @@ with BSF's Ideasbox.
 ## Features
 
 * Installs a bunch of softwares -- `tor-browser` and `skype` included
-* Configures a session that is used ass a template for guest sessions
+* Configures a session that is used as a template for guest sessions
 * Many more to come
 
 ## HOWTO
