@@ -1,13 +1,7 @@
 ---
 
-- name: Skype | Add i386 architecture for x64 systems
-  shell: "dpkg --add-architecture i386"
-  when: ansible_userspace_architecture == "x86_64"
-  tags:
-  - skype
-
-- name: Skype | Add Partner repository
-  apt_repository: repo="deb http://archive.canonical.com/ {{ ansible_distribution_release }} partner"
+- name: Skype | Add Skype PPA
+  apt_repository: repo="ppa:andykimpe/skype"
   tags:
   - skype
   - apt
