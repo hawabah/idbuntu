@@ -1,16 +1,10 @@
 ---
 
 - name: Skype | Add Skype PPA
-  apt_repository: repo="ppa:andykimpe/skype"
+  apt_repository: repo="ppa:andykimpe/skype" update_cache=yes
   tags:
   - skype
   - apt
-
-- name: Refresh the cache
-  apt:
-    update_cache: yes
-  tags:
-  - skype
 
 - name: Skype | Install Skype
   apt:
