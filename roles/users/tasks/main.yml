@@ -1,17 +1,42 @@
 ---
 
-# sysadmin
+# sysadmins
 
 - name: enforce user 'bsfadmin'
   user:
     name:               bsfadmin
-    comment:            "Admin"
+    comment:            "BSF Admin"
     uid:                1000
     password:           "$6$MHOUMdoO.tNHLv$aaL6ffPYFGirRo7WmfddNbRhnl11jO6zFOggUohE/j0Ixqmn9Xp2StZ8oilGj7voiGZQcFYAnMDYPX7/XIKd6/"
+    update_password:    always
     groups:             adm,sudo
     state:              present
   tags:
   - users
+  - admin
+
+
+- name: enforce user 'localadmin'
+  user:
+    name:               localadmin
+    comment:            "Local Admin"
+    uid:                1001
+    password:           "$6$wormVPksUC9CQ30$OTQWm8HKM/T7wks7iOJ97hkC8QDrdsDH1j4t4OmAzv9nC0qvX3OQJEPrL6R6F8WJ9yqiND9KfR1QEY9ZbiAtN0"
+    groups:             adm,sudo
+    state:              present
+  register: localadmincreate
+  tags:
+  - users
+  - admin
+
+- name: enforce 'localadmin' password change at next login
+  shell: passwd -e localadmin
+  args:
+    warn: no
+  when: localadmincreate.changed == True
+  tags:
+  - users
+  - admin
 
 
 # template session
@@ -47,6 +72,7 @@
     - steven.pub
   tags:
   - users
+  - admin
   - ssh-keys
 
 - name: Set up authorized_keys for root user
@@ -57,4 +83,5 @@
     - steven.pub
   tags:
   - users
+  - admin
   - ssh-keys
