@@ -13,11 +13,11 @@
 
 - name: firefox | Create a profile directory
   file:
-    path:       /home/bsfadmin/.mozilla/firefox/ideasbox.default
+    path:       /home/ideasbox/.mozilla/firefox/ideasbox.default
     state:      directory
     recurse:    yes
-    owner:      bsfadmin
-    group:      bsfadmin
+    owner:      ideasbox
+    group:      ideasbox
   tags:
   - firefox
   - software
@@ -29,9 +29,9 @@
     dest:   "{{ item.dest }}"
   with_items:
   - src: firefox_profiles.js
-    dest: /home/bsfadmin/.mozilla/firefox/profiles.ini
+    dest: /home/ideasbox/.mozilla/firefox/profiles.ini
   - src: firefox_prefs.js
-    dest: /home/bsfadmin/.mozilla/firefox/ideasbox.default/prefs.js
+    dest: /home/ideasbox/.mozilla/firefox/ideasbox.default/prefs.js
   tags:
   - firefox
   - software
