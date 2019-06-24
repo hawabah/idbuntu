@@ -34,6 +34,8 @@ Example `hosts` file:
     [malakasa]
     malakasa-pc[1:4]
 
+Define the project_type, which can be `ideascube` (the default), `ideasbox` or `koombook`.
+
 Run:
 
-    ansible-playbook -l malakasa idbuntu.yml
+    ansible-playbook -l malakasa idbuntu.yml -e 'project_type=ideascube'

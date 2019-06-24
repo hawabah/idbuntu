@@ -13,25 +13,25 @@
 
 - name: firefox | Create a profile directory
   file:
-    path:       /home/ideasbox/.mozilla/firefox/ideasbox.default
+    path:       /home/{{ project_slug }}/.mozilla/firefox/{{ project_slug }}.default
     state:      directory
     recurse:    yes
-    owner:      ideasbox
-    group:      ideasbox
+    owner:      "{{ project_slug }}"
+    group:      "{{ project_slug }}"
   tags:
   - firefox
   - software
   - desktop
 
 - name: firefox | Drop a profiles list and a configuration file
-  copy:
+  template:
     src:    "{{ item.src }}"
     dest:   "{{ item.dest }}"
   with_items:
-  - src: firefox_profiles.js
-    dest: /home/ideasbox/.mozilla/firefox/profiles.ini
-  - src: firefox_prefs.js
-    dest: /home/ideasbox/.mozilla/firefox/ideasbox.default/prefs.js
+  - src: firefox_profiles.js.j2
+    dest: /home/{{ project_slug }}/.mozilla/firefox/profiles.ini
+  - src: firefox_prefs.js.j2
+    dest: /home/{{ project_slug }}/.mozilla/firefox/{{ project_slug }}.default/prefs.js
   tags:
   - firefox
   - software

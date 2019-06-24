@@ -14,7 +14,7 @@
 
 - name: wallpaper | Copy the wallpaper image
   copy:
-    src: fd-ideasbox.png
+    src: fd-{{ project_slug }}.png
     dest: /usr/local/share/wallpapers/
     owner: root
     group: staff
@@ -25,8 +25,8 @@
 
 - name: wallpaper | Set the wallpaper for the ideasbox user
   become: yes
-  become_user: ideasbox
-  shell: dbus-launch gsettings set org.gnome.desktop.background picture-uri 'file:///usr/local/share/wallpapers/fd-ideasbox.png'
+  become_user: "{{ project_slug }}"
+  shell: dbus-launch gsettings set org.gnome.desktop.background picture-uri 'file:///usr/local/share/wallpapers/fd-{{ project_slug }}.png'
   tags:
   - desktop
   - wallpaper
@@ -35,14 +35,14 @@
 # In the meantime:
 #
 # bsfadmin$ sudo su -s /bin/bash - lightdm
-# lightdm$ dbus-launch gsettings set com.canonical.unity-greeter background /usr/local/share/wallpapers/fd-ideasbox.png
+# lightdm$ dbus-launch gsettings set com.canonical.unity-greeter background /usr/local/share/wallpapers/fd-{{ project_slug }}.png
 # lightdm$ dconf update
 
 #- name: wallpaper | Set the login splash screen as well
   #become: yes
   #become_user: lightdm
   #become_flags: '-s /bin/bash'
-  #shell: dbus-launch gsettings set com.canonical.unity-greeter background /usr/local/share/wallpapers/fd-ideasbox.png
+  #shell: dbus-launch gsettings set com.canonical.unity-greeter background /usr/local/share/wallpapers/fd-{{ project_slug }}.png
   #tags:
   #- desktop
   #- wallpaper
