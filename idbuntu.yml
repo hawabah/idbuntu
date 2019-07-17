@@ -2,6 +2,8 @@
 
 - hosts:        all
   remote_user:  root
+  vars:
+  - project_slug: "{{ project_type | default('ideascube') }}"
   roles:
   - apt
   - system
