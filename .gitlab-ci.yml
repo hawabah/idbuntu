@@ -1,0 +1,54 @@
+stages:
+  - test
+  - deploy
+
+
+ansible tests:
+  stage: test
+  image: python:2-slim
+  before_script:
+    - apt-get --quiet --quiet update && apt-get --quiet --quiet --assume-yes install build-essential
+    - pip install -r tests/requirements-dev.txt
+    - ansible --version
+    - pytest --version
+  script:
+    - py.test
+
+bash tests:
+  stage: test
+  image: koalaman/shellcheck-alpine:stable
+  before_script:
+    - shellcheck --version
+  script:
+    - find . -type f -iname '*.*sh' -exec shellcheck '{}' +
+  only:
+    changes:
+      - "**/*.*sh"
+
+markdown tests:
+  stage: test
+  image: pipelinecomponents/markdownlint:latest
+  script:
+    - mdl --style all --warnings .
+  only:
+    changes:
+      - "*.md"
+
+Deploy to Pages:
+  stage: deploy
+  image: debian:latest
+  script:
+  - apt-get update --quiet --quiet && apt-get install --quiet --quiet --assume-yes pandoc tidy
+  - pandoc -f markdown -t html README.md > index.html
+  - tidy -iqu -m index.html || true
+  - mkdir .public
+  - cp -r * .public
+  - mv .public public
+  artifacts:
+    paths:
+    - public
+  environment:
+    name: production
+    url: $CI_PAGES_URL
+  only:
+  - master
