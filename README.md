@@ -1,6 +1,6 @@
 # idbuntu
 
-    ideasbox + ubuntu == idbuntu.
+> ideasbox + ubuntu == idbuntu.
 
 This playbook help us to install and configure Ubuntu on the laptops we ship
 with BSF's Ideasbox.
@@ -17,25 +17,31 @@ with BSF's Ideasbox.
 
 Install Ubuntu. Open a terminal, and bootstrap the laptop:
 
-    $ curl http://drop.bsf-intranet.org/idbuntu/go.sh | sudo bash -
+```shell
+curl http://drop.bsf-intranet.org/idbuntu/go.sh | sudo bash -
+```
 
 This script basically ensures one can SSH the laptops and display the local
 IP address so you can feed your ansible inventory file.
 
-### ansible all the things!
+### ansible all the things
 
 Example `hosts` file:
 
-    malakasa-pc1    ansible_ssh_host=10.10.8.96
-    malakasa-pc2    ansible_ssh_host=10.10.8.217
-    malakasa-pc3    ansible_ssh_host=10.10.8.189
-    malakasa-pc4    ansible_ssh_host=10.10.8.222
-    
-    [malakasa]
-    malakasa-pc[1:4]
+```ini
+malakasa-pc1    ansible_ssh_host=10.10.8.96
+malakasa-pc2    ansible_ssh_host=10.10.8.217
+malakasa-pc3    ansible_ssh_host=10.10.8.189
+malakasa-pc4    ansible_ssh_host=10.10.8.222
+
+[malakasa]
+malakasa-pc[1:4]
+```
 
 Define the project_type, which can be `ideascube` (the default), `ideasbox` or `koombook`.
 
 Run:
 
-    ansible-playbook -l malakasa idbuntu.yml -e 'project_type=ideascube'
+```shell
+ansible-playbook -l malakasa idbuntu.yml -e 'project_type=ideascube'
+```
