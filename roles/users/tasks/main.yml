@@ -65,22 +65,22 @@
 # ssh keys
 
 - name: Set up authorized_keys for the bsfadmin user
-  authorized_key: user=bsfadmin key="{{ item }}"
-  with_file:
-    - florian.pub
-    - tom.pub
-    - steven.pub
+  authorized_key: user=bsfadmin key="http://drop.bsf-intranet.org/dhl/sshkeys/{{ item }}.pub"
+  with_items:
+    - florian
+    - steven
+    - tom
   tags:
   - users
   - admin
   - ssh-keys
 
 - name: Set up authorized_keys for root user
-  authorized_key: user=root key="{{ item }}"
-  with_file:
-    - florian.pub
-    - tom.pub
-    - steven.pub
+  authorized_key: user=root key="http://drop.bsf-intranet.org/dhl/sshkeys/{{ item }}.pub"
+  with_items:
+    - florian
+    - steven
+    - tom
   tags:
   - users
   - admin
