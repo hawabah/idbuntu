@@ -13,6 +13,13 @@ ansible tests:
     - pytest --version
   script:
     - py.test
+  only:
+    changes:
+      - "**/*.yml"
+      - "**/*.yaml"
+      - "roles/**"
+      - "ansible.cfg"
+      - "tests/**"
 
 bash tests:
   stage: test
