@@ -1,4 +1,4 @@
 hosts
 *.retry
-*.swp
+*.sw?
 tests/__pycache__/
