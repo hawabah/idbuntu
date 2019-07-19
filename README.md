@@ -38,7 +38,8 @@ malakasa-pc4    ansible_ssh_host=10.10.8.222
 malakasa-pc[1:4]
 ```
 
-Define the `project_type`, which can be `ideascube` (the default), `ideasbox` or `koombook`.
+Define the `project_type`, which can be `ideascube` (the default), `ideasbox`
+or `koombook`.
 
 Run:
 
