@@ -49,7 +49,7 @@ Deploy to Pages:
   - pandoc -f markdown -t html README.md > index.html
   - tidy -iqu -m index.html || true
   - mkdir .public
-  - cp -r * .public
+  - cp index.html go.sh .public
   - mv .public public
   artifacts:
     paths:
