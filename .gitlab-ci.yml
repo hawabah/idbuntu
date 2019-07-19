@@ -9,7 +9,7 @@ ansible tests:
   before_script:
     - apt-get --quiet --quiet update && apt-get --quiet --quiet --assume-yes install build-essential
     - pip install -r tests/requirements-dev.txt
-    - ansible --version
+    - ANSIBLE_CONFIG=ansible.cfg ansible --version
     - pytest --version
   script:
     - py.test
