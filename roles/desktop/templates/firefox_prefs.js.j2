@@ -1,8 +1,8 @@
-{% if project_type == 'ideascube' %}
+{% if project_slug == 'ideascube' %}
 {%   set project_homepage = 'ideascube' %}
-{% elif project_type == 'ideasbox' %}
+{% elif project_slug == 'ideasbox' %}
 {%   set project_homepage = 'ideasbox.lan' %}
-{% elif project_type == 'koombook' %}
+{% elif project_slug == 'koombook' %}
 {%   set project_homepage = 'koombook.lan' %}
 {% endif %}
 user_pref("browser.startup.homepage", "http://{{ project_homepage }}/");
