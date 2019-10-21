@@ -13,7 +13,11 @@ with BSF's Ideasbox.
 
 ## HOWTO
 
+This assumes you have a working [ansible setup](ANSIBLE-SETUP.md).
+
 ### Bootstrap
+
+This happens on the target laptop(s).
 
 Install Ubuntu. Open a terminal, and bootstrap the laptop:
 
@@ -25,6 +29,8 @@ This script basically ensures one can SSH the laptops and display the local
 IP address so you can feed your ansible inventory file.
 
 ### ansible all the things
+
+This happens on your "controler" (i.e. your own laptop).
 
 Example `hosts` file:
 
