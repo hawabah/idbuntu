@@ -13,7 +13,12 @@ with BSF's Ideasbox.
 
 ## HOWTO
 
-This assumes you have a working [ansible setup](ANSIBLE-SETUP.md).
+### Prepare your workspace
+
+```shell
+apt-get install ansible
+git clone https://github.com/bibliosansfrontieres/idbuntu
+```
 
 ### Bootstrap
 
